@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { STYLE_PROMPTS } from '../constants';
 import { StyleKey } from '../types';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyDtNasUGlWFTCgSVWACKJlyRIaxlROQewY" });
 
 // Helper to clean LLM output
 const cleanText = (text: string): string => {
@@ -101,11 +101,10 @@ export const generateArticleText = async (topic: string, styleName: StyleKey, wo
     `;
 
   try {
-    const response = await ai.models.generateContent({
-      model: "gemini-3-pro-preview", 
+   const response = await ai.models.generateContent({
+      model: "gemini-2.0-flash", 
       contents: prompt,
       config: {
-        thinkingConfig: { thinkingBudget: 2048 },
         maxOutputTokens: 8192,
       }
     });
