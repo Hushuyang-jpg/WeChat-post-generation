@@ -2,9 +2,16 @@ import { GoogleGenAI } from "@google/genai";
 import { STYLE_PROMPTS } from '../constants';
 import { StyleKey } from '../types';
 
-// 1. 初始化 AI 实例（已经直接写入密钥）
+// 获取环境变量中的 API Key
+const apiKey = process.env.GEMINI_API_KEY;
+
+if (!apiKey) {
+  console.error("未找到 API 密钥，请确保在 .env.local 文件中配置了 GEMINI_API_KEY");
+}
+
+// 1. 初始化 AI 实例（使用环境变量）
 const ai = new GoogleGenAI({ 
-  apiKey:"AIzaSyDtNasUGlWFTCgSVWACKJlyRIaxlROQewY"
+  apiKey: apiKey
   // 如果你实在无法搞定本地全局代理，且有国内反代域名，可以取消下面这行的注释：
   // , httpOptions: { baseUrl: "https://你的反代域名" }
 });
@@ -17,6 +24,8 @@ const cleanText = (text: string): string => {
 };
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+// ... 保持该文件下方其余代码不变 ...
 
 // Helper to enhance image prompts
 const getEnhancedImagePrompt = (text: string, styleName: StyleKey | string, isCover: boolean = false): string => {
