@@ -91,9 +91,10 @@ const App: React.FC = () => {
         coverUrl
       });
 
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong during generation. Please check your API key and try again.");
+    } catch (error: any) {
+      console.error("详细报错信息:", error);
+      // 把真实的报错信息弹窗显示出来
+      alert(`生成失败！\n阶段: ${statusMessage}\n错误详情: ${error.message || error}`);
     } finally {
       setIsGenerating(false);
       setStatusMessage("");

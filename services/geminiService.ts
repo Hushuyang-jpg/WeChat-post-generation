@@ -4,7 +4,7 @@ import { StyleKey } from '../types';
 
 // 1. 初始化 AI 实例（已经直接写入密钥）
 const ai = new GoogleGenAI({ 
-  apiKey: "AIzaSyDtNasUGlWFTCgSVWACKJlyRIaxlROQewY"
+  apiKey:"AIzaSyDtNasUGlWFTCgSVWACKJlyRIaxlROQewY"
   // 如果你实在无法搞定本地全局代理，且有国内反代域名，可以取消下面这行的注释：
   // , httpOptions: { baseUrl: "https://你的反代域名" }
 });
