@@ -1,0 +1,5 @@
+{
+  "name": "WeChat Article Generator",
+  "description": "A professional WeChat Official Account article generator using Gemini for deep content and Imagen for photorealistic visuals.",
+  "requestFramePermissions": []
+}
